@@ -419,7 +419,7 @@ void PWM_Process_Adjust(void)
         #endif
 
         duty_hex = (data_reg_default / DUTY_RESOLUTION) * 1;   //0.1 %
-        temp_duty = (data_reg_default <= 0) ? (0) : (temp_duty - duty_hex ) ;   
+        temp_duty = (temp_duty <= 0) ? (0) : (temp_duty - duty_hex ) ;   
         #if defined (ENABLE_LOG_PWM)
         {
             printf_tiny("-duty2:0x%02X,0x%02X\r\n",temp_duty ,duty_hex); 
